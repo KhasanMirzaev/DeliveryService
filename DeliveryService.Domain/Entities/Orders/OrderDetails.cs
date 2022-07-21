@@ -1,5 +1,5 @@
 ﻿using DeliveryService.Domain.Commons;
-using DeliveryService.Domain.Entities.Customers;
+using DeliveryService.Domain.Entities.Products;
 using DeliveryService.Domain.Enums;
 using System;
 using System.Collections.Generic;
@@ -11,32 +11,27 @@ using System.Threading.Tasks;
 
 namespace DeliveryService.Domain.Entities.Orders
 {
-    public class Order : IAuditable
+    public class OrderDetails : IAuditable
     {
         public Guid Id { get; set; }
-        public decimal Longitute { get; set; }
-        public decimal Latitute { get; set; }
-        public OrderStatus Status { get; set; }
+        public int Quantity { get; set; }
 
+        [ForeignKey(nameof(Order))]
+        public Guid OrderId { get; set; }
+        [JsonIgnore]
+        public virtual Order Order { get; set; }
+
+
+        [ForeignKey(nameof(Product))]
+        public Guid ProductId { get; set; }
+        [JsonIgnore]
+        public virtual Product Product { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public Guid? UpdatedBy { get; set; }
         public ItemState State { get; set; }
 
-
-        [ForeignKey(nameof(Customer))]
-        public Guid CustomerId { get; set; }
-        [JsonIgnore]
-        public virtual Customer Customer { get; set; }
-
-        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
-
-        //Constructor
-        public Order()
-        {
-            OrderDetails = new List<OrderDetails>();
-        }
 
         public void Create()
         {
