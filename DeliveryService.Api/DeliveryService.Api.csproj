@@ -13,11 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\DeliveryService.Data\DeliveryService.Data.csproj" />
+    <ProjectReference Include="..\DeliveryService.Service\DeliveryService.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeliveryService.Data\DeliveryService.Data.csproj" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="wwwroot\Videos\" />
   </ItemGroup>
 
 </Project>

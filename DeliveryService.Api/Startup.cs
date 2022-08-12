@@ -1,4 +1,9 @@
 using DeliveryService.Data.Contexts;
+using DeliveryService.Data.IRepositories;
+using DeliveryService.Data.Repositories;
+using DeliveryService.Service.Interfaces;
+using DeliveryService.Service.Mappers;
+using DeliveryService.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +37,12 @@ namespace DeliveryService.Api
             {
                 options.UseNpgsql(Configuration.GetConnectionString("DeliveryService"));
             });
+
+            services.AddScoped<ICustomerService, CustomerService>();
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+            services.AddAutoMapper(typeof(MappingProfile));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

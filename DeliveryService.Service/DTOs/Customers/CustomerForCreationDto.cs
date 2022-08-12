@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DeliveryService.Service.DTOs.Customers
 {
-    public class CustomerForcreationDto
+    public class CustomerForCreationDto
     {
         [Required]
         public string FirstName { get; set; }

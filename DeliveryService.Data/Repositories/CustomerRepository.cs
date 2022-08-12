@@ -53,7 +53,7 @@ namespace DeliveryService.Data.Repositories
             return await appDbContext.Customers.Include(p=>p.Orders).FirstOrDefaultAsync(expression);
         }
 
-        public async Task<Customer> UpdateAsync(Guid Id, Customer customer)
+        public async Task<Customer> UpdateAsync(Customer customer)
         {
             var result = appDbContext.Customers.Update(customer);
 

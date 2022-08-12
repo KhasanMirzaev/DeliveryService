@@ -6,14 +6,16 @@
 
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Atttributes\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeliveryService.Api\DeliveryService.Api.csproj" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DeliveryService.Data\DeliveryService.Data.csproj" />
     <ProjectReference Include="..\DeliveryService.Domain\DeliveryService.Domain.csproj" />
   </ItemGroup>
